@@ -1,0 +1,9 @@
+from rasa_sdk import Action
+
+class ActionFallbackGPT(Action):
+    def name(self):
+        return "action_fallback_gpt"
+
+    def run(self, dispatcher, tracker, domain):
+        dispatcher.utter_message("Sorry, I couldn’t understand that. Please rephrase.")
+        return []
