@@ -1,5 +1,3 @@
-Bilkul! Yeh raha **internship-standard, detailed README.md** (Hindi-English Hybrid for easy understanding) with proper `screenshots/` folder links and every section described clearly. Isse reviewer ko sab cheez ekdum samajh aayegi aur repo bohot professional lagega:
-
 ***
 
 # 🤖 Smart Customer Support Chatbot
