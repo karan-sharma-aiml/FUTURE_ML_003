@@ -9,7 +9,7 @@ A fully open-source, production-grade AI Chatbot for customer support—made for
 ## 🗂️ Folder Structure
 
 ```
-future_ml_032/
+future_ml_003/
 │
 ├── actions/                      # Custom actions for Rasa
 │   ├── action_fallback_gpt.py
