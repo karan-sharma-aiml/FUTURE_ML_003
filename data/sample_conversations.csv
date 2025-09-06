@@ -1,0 +1,8 @@
+user,bot
+Hi,Hello! How can I help you today?
+Where is my order?,Please provide your order ID, I’ll check the status for you.
+12345,Your order #12345 is being processed and will be delivered in 3 days.
+I want refund,Our refund policy allows refunds within 7 days of purchase.
+Talk to human,Sure, connecting you to a human agent.
+Blah,Sorry, I didn’t understand. Would you like to rephrase?
+Thank you,You’re welcome! Anything else I can assist you with?
