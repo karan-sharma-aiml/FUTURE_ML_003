@@ -1,0 +1,121 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:5.0
+    container_name: chatbot_mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - chatbot_network
+
+  # Redis for Caching
+  redis:
+    image: redis:7-alpine
+    container_name: chatbot_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - chatbot_network
+
+  # FastAPI Backend
+  backend:
+    build:
+      context: .
+      dockerfile: deployment/Dockerfile
+    container_name: chatbot_backend
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URI=mongodb://admin:password123@mongodb:27017/chatbot?authSource=admin
+      - REDIS_URL=redis://redis:6379
+      - OPENAI_API_KEY=your-openai-api-key-here
+    depends_on:
+      - mongodb
+      - redis
+    volumes:
+      - .:/app
+    networks:
+      - chatbot_network
+
+  # Rasa Action Server
+  rasa-actions:
+    build:
+      context: ./rasa_bot
+      dockerfile: Dockerfile.actions
+    container_name: rasa_actions
+    restart: always
+    ports:
+      - "5055:5055"
+    volumes:
+      - ./rasa_bot/actions:/app/actions
+    networks:
+      - chatbot_network
+
+  # Rasa Server
+  rasa-server:
+    image: rasa/rasa:3.6.4
+    container_name: rasa_server
+    restart: always
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./rasa_bot:/app
+    command: >
+      run --enable-api --cors "*" --debug
+      --endpoints endpoints.yml
+      --credentials credentials.yml
+    depends_on:
+      - rasa-actions
+      - mongodb
+    networks:
+      - chatbot_network
+
+  # Streamlit Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+    container_name: chatbot_frontend
+    restart: always
+    ports:
+      - "8501:8501"
+    environment:
+      - BACKEND_URL=http://backend:8000
+    depends_on:
+      - backend
+    networks:
+      - chatbot_network
+
+  # Analytics Dashboard
+  analytics:
+    build:
+      context: ./analytics
+      dockerfile: Dockerfile.analytics
+    container_name: chatbot_analytics
+    restart: always
+    ports:
+      - "8502:8502"
+    environment:
+      - MONGO_URI=mongodb://admin:password123@mongodb:27017/chatbot?authSource=admin
+    depends_on:
+      - mongodb
+    networks:
+      - chatbot_network
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  chatbot_network:
+    driver: bridge

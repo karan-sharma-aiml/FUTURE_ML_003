@@ -1,0 +1,53 @@
+{
+  "text": {
+    "hi": 6,
+    "hello": 3,
+    "hey": 5,
+    "good": 2,
+    "morning": 10,
+    "there": 19,
+    "i": 7,
+    "forgot": 1,
+    "my": 11,
+    "password": 14,
+    "reset": 15,
+    "can": 0,
+    "you": 23,
+    "help": 4,
+    "me": 9,
+    "where": 22,
+    "is": 8,
+    "order": 13,
+    "track": 20,
+    "what": 21,
+    "the": 18,
+    "status": 16,
+    "of": 12,
+    "tell": 17
+  },
+  "intent": {
+    "greet": 1,
+    "ask_password": 0,
+    "order_status": 2
+  },
+  "response": null,
+  "action_name": {
+    "action_listen": 6,
+    "action_restart": 7,
+    "action_session_start": 9,
+    "action_default_fallback": 4,
+    "action_deactivate_loop": 1,
+    "action_revert_fallback_events": 8,
+    "action_default_ask_affirmation": 2,
+    "action_default_ask_rephrase": 3,
+    "action_two_stage_fallback": 10,
+    "action_unlikely_intent": 11,
+    "action_back": 0,
+    "action_extract_slots": 5,
+    "utter_ask_password": 12,
+    "utter_greet": 13,
+    "utter_order_status": 14
+  },
+  "action_text": null,
+  "intent_response_key": null
+}

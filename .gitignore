@@ -1,0 +1,6 @@
+# .gitignore
+.env
+venv_rasa/
+venv_lang/
+pyvenv.cgf
+venv/

@@ -1,0 +1,23 @@
+body {
+  background: #f9f9f9;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+.stChatInput, .stButton {
+  border-radius: 5px;
+  font-size: 16px;
+}
+.stTitle, .stHeader {
+  color: #3f51b5;
+}
+.bot-reply {
+  background: #d1eaff;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px 0;
+}
+.user-query {
+  background: #ffe2e2;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px 0;
+}

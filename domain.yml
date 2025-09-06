@@ -1,0 +1,51 @@
+version: "3.1"
+
+intents:
+  - greet
+  - track_order
+  - refund_policy
+  - faq
+  - talk_to_human
+  - fallback
+  - goodbye
+  - ask_anything
+  - bot_challenge
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I help you today?"
+
+  utter_track_order:
+    - text: "Please provide your order ID, I’ll check the status for you."
+
+  utter_refund_policy:
+    - text: "Our refund policy allows refunds within 7 days of purchase."
+
+  utter_faq:
+    - text: "For general questions, please ask me anything about delivery time, support email, etc."
+
+  utter_talk_to_human:
+    - text: "Sure, connecting you to a human agent."
+
+  utter_fallback:
+    - text: "Sorry, I didn’t understand. Would you like to rephrase?"
+
+  utter_goodbye:
+    - text: "Goodbye! Have a nice day."
+
+  utter_iamabot:
+    - text: "I am a bot here to assist you."
+
+slots:
+  order_id:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: order_id
+      - type: from_text
+
+actions:
+  - action_order_status
+  - action_gemini_chat
+  - action_default_fallback

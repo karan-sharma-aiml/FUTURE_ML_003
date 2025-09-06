@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - hey
+- intent: track_order
+  examples: |
+    - I want to track my order
+    - Track order 12345
+    - Where is my order?
+- intent: refund_policy
+  examples: |
+    - What is your refund policy?
+    - Tell me about refunds
+    - How do I get a refund?
+- intent: faq
+  examples: |
+    - When will my order arrive?
+    - What are your delivery times?
+    - How can I contact support?
+- intent: talk_to_human
+  examples: |
+    - I want to talk to a human
+    - Connect me to an agent
+    - Let me speak to customer support
+- intent: fallback
+  examples: |
+    - asdfasdf
+    - ajhdjkahsd
+- intent: goodbye
+  examples: |
+    - goodbye
+    - bye
+- intent: ask_anything
+  examples: |
+    - Can I ask something?
+    - I have a question
+- intent: bot_challenge
+  examples: |
+    - Are you a bot?
+    - Are you an AI?

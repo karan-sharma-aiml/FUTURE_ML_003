@@ -1,0 +1,23 @@
+fastapi==0.116.1
+uvicorn==0.35.0
+pydantic>=1.7.4,<3.0.0
+rasa==3.6.21
+spacy==3.8.7
+transformers==4.56.0
+openai==1.104.0
+streamlit==1.49.1
+# langchain==0.0.208      # (Only add langchain if not giving version conflict)
+faiss-cpu==1.7.4
+matplotlib>=3.1,<3.6
+plotly>=5.15.0
+setuptools==70.3.0
+SQLAlchemy>=1.4.0,<2.0.0        # THIS IS KEY FOR RASA!
+PyJWT>=2.0.0,<3.0.0
+typing_extensions>=4.8.0
+requests>=2.27
+protobuf>=3.20
+packaging>=20
+numpy>=1.23
+pandas>=1.4.0
+pymongo>=4.0,<4.4               # !!! Important !!!
+coloredlogs                     # (do NOT add "colouredlogs")

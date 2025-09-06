@@ -1,0 +1,5 @@
+services:
+  - type: web
+    name: smart-chatbot
+    env: docker
+    plan: free

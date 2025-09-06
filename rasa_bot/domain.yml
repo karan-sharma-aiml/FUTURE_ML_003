@@ -1,0 +1,18 @@
+version: "3.1"
+
+intents:
+  - greet
+  - ask_anything
+  - goodbye
+  - bot_challenge
+
+responses:
+  utter_greet:
+    - text: "Hey! How can I help?"
+  utter_goodbye:
+    - text: "Bye! Take care."
+  utter_iamabot:
+    - text: "I am an AI bot here to assist you."
+
+actions:
+  - action_gemini_chat

@@ -1,0 +1,13 @@
+FROM rasa/rasa-sdk:3.6.1
+
+# Copy action files
+COPY actions /app/actions
+
+# Install additional dependencies if needed
+# RUN pip install --no-cache-dir requests pandas
+
+# Expose port
+EXPOSE 5055
+
+# Run action server
+CMD ["start", "--actions", "actions"]
